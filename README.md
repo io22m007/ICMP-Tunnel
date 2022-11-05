@@ -30,3 +30,19 @@ ICMP Types:
 - 15  Information Request
 - 16  Information Reply
 
+# Examples for ICMP echo request and ICMP echo reply
+Windows 10 on a LAN pinging Cloudflare DNS server on the public internet (echo request | type 8).
+
+![ICMP echo request](/ICMP_echo_request_example.png)
+
+Cloudflare DNS server responding to the request (echo reply | type 0).
+
+![ICMP echo request](/ICMP_echo_reply_example.png)
+
+Ubuntu on a LAN pinging Google DNS server on the public internet (echo request | type 8).
+
+![ICMP echo request](/ICMP_echo_request_example_ubuntu.png)
+
+Google DNS server responding to the request (echo reply | type 0).
+
+![ICMP echo request](/ICMP_echo_reply_example_ubuntu.png)
