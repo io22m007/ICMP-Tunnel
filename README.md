@@ -1,4 +1,4 @@
-# Basics
+# ICMP Basics
 
 ICMP (or the Internet Control Message Protocol) is a upper layer 3 protocol.
 
@@ -6,9 +6,9 @@ ICMP (or the Internet Control Message Protocol) is a upper layer 3 protocol.
 It is commonly used for diagnostic purposes (ping and traceroute).
 
 
-ICMP for IPv4 is specified in rfc792 and ICMP for IPv6 (ICMPv6) ist specified in rfc4443.
+ICMP for IPv4 is specified in [rfc792](https://www.rfc-editor.org/rfc/rfc792) and ICMP for IPv6 (ICMPv6) is specified in [rfc4443](https://www.rfc-editor.org/rfc/rfc4443).
 
-![ICMP over IPv4 structure](https://homepages.uc.edu/~thomam/Net1/Diagrams/ip_icmp_pdu.png)
+![ICMP over IPv4 structure](ICMP_diagram.png)
 
 20 Byte IPv4 Header + 8 Byte ICMP fields + data (optional depending on the ICMP type)
 
@@ -47,3 +47,32 @@ Google DNS server responding to the request (echo reply | type 0).
 
 ![ICMP echo request](/ICMP_echo_reply_example_Ubuntu.png)
 
+# ICMP data
+Windows sends the alphabet (small letters) ~1,27 times (32 bytes).
+
+Ubuntu sends a total of 48 bytes from which only the last 24 bytes have a grphical representation.
+
+## Could something else be send as ICMP request/reply data?
+Yes!
+
+For startes with some ping utilities you can adjust the length of the ICMP data.
+
+Other programs let you send a custom text as ICMP data.
+
+
+
+# sources
+
+https://en.wikipedia.org/wiki/IPv4
+
+https://www.elektronik-kompendium.de/sites/net/2011241.htm
+
+https://homepages.uc.edu/~thomam/Net1/Packet_Formats/icmp.html
+
+https://www.ionos.at/digitalguide/server/knowhow/was-ist-das-icmp-protokoll-und-wie-funktioniert-es/
+
+https://www.elektronik-kompendium.de/sites/net/0901011.htm
+
+https://www.javatpoint.com/computer-network-tcp-ip-model
+
+https://www.rfc-editor.org/rfc/rfc792
