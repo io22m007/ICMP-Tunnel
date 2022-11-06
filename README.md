@@ -10,7 +10,7 @@ ICMP for IPv4 is specified in rfc792 and ICMP for IPv6 (ICMPv6) ist specified in
 
 ![ICMP over IPv4 structure](https://homepages.uc.edu/~thomam/Net1/Diagrams/ip_icmp_pdu.png)
 
-20 Byte IPv4 Header + 8 Byte ICMP fields + data (optional depending on the ICMP message type)
+20 Byte IPv4 Header + 8 Byte ICMP fields + data (optional depending on the ICMP type)
 
 IPv4 type of service (TOS): 0
 
@@ -33,16 +33,17 @@ ICMP Types:
 # Examples for ICMP echo request and ICMP echo reply
 Windows 10 on a LAN pinging Cloudflare DNS server on the public internet (echo request | type 8).
 
-![ICMP echo request](/ICMP_echo_request_example.png)
+![ICMP echo request](/ICMP_echo_request_example_Windows.png)
 
 Cloudflare DNS server responding to the request (echo reply | type 0).
 
-![ICMP echo request](/ICMP_echo_reply_example.png)
+![ICMP echo request](/ICMP_echo_reply_example_Windows.png)
 
 Ubuntu on a LAN pinging Google DNS server on the public internet (echo request | type 8).
 
-![ICMP echo request](/ICMP_echo_request_example_ubuntu.png)
+![ICMP echo request](/ICMP_echo_request_example_Ubuntu.png)
 
 Google DNS server responding to the request (echo reply | type 0).
 
-![ICMP echo request](/ICMP_echo_reply_example_ubuntu.png)
+![ICMP echo request](/ICMP_echo_reply_example_Ubuntu.png)
+
