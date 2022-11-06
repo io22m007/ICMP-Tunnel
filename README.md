@@ -62,7 +62,25 @@ For starters with some ping utilities, you can adjust the length of the ICMP dat
 
 Other programs let you send a custom text as ICMP data.
 
+Some early research on what can be done with the data transmitted in ICMP requests and reply includes [project Loki](https://web.archive.org/web/20030316090229/http://www.phrack.com/show.php?p=49&a=6). In this project from 1996 the posibility of a covert channel via the ICMP protocol was discussed. Covert channels can grouped into two categories:
 
+- timing channel (sub-categories: interval based, time-replay, model-based, JitterBug, ...)
+- storage channel (in networking use of optional or unused protocol fields)
+
+# ICMP Tunnel
+An ICMP Tunnel uses a covert storage channel with the data field in the ICMP requests and replies. 
+
+ICMP tunnels have two general usecases:
+- reverse-shell
+- ip over icmp
+
+## reverse-shell
+
+## ip over icmp
+Hide ipv4 data trafic in icmp packets.
+Can for example be used to circumvent captive portals.
+
+### hans
 
 # sources
 
@@ -79,3 +97,11 @@ https://www.elektronik-kompendium.de/sites/net/0901011.htm
 https://www.javatpoint.com/computer-network-tcp-ip-model
 
 https://www.rfc-editor.org/rfc/rfc792
+
+https://link.springer.com/chapter/10.1007/3-540-45067-X_20
+
+https://web.archive.org/web/20030316090229/http://www.phrack.com/show.php?p=49&a=6
+
+https://ieeexplore.ieee.org/document/8308433
+
+https://ieeexplore.ieee.org/document/5590253
