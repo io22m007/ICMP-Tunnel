@@ -1,6 +1,4 @@
-# ICMP Basics
-
-ICMP (or the Internet Control Message Protocol) is a upper layer 3 protocol.
+ICMP (or the Internet Control Message Protocol) is an upper layer 3 protocol.
 
 
 It is commonly used for diagnostic purposes (ping and traceroute).
@@ -50,12 +48,12 @@ Google DNS server responding to the request (echo reply | type 0).
 # ICMP data
 Windows sends the alphabet (small letters) ~1,27 times (32 bytes).
 
-Ubuntu sends a total of 48 bytes from which only the last 24 bytes have a grphical representation.
+Ubuntu sends a total of 48 bytes from which only the last 24 bytes have a graphical representation.
 
 ## Could something else be send as ICMP request/reply data?
 Yes!
 
-For startes with some ping utilities you can adjust the length of the ICMP data.
+For starters with some ping utilities, you can adjust the length of the ICMP data.
 
 Other programs let you send a custom text as ICMP data.
 
