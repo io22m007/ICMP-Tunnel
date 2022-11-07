@@ -189,7 +189,23 @@ Lastly reboot the device.
 #### ***configuration and execution (GNU/Linux only)***
 Several settings need to be adjusted in order for the client and the server to be able to communicate and to use the internet over the ICMP tunnel.
 
-On the server side routing needs to be enabled and the 
+On the server side routing needs to be enabled with the following command.
+```
+sudo sysctl net.ipv4.ip_forward net.ipv4.ip_forward=1
+```
+Also for the server icmp requests need to be ignored by the router and/or CPE (customer premises equipment).
+
+On Asus routers this is achieved by setting `Respond ICMP Echo (ping) Request from WAN` (under Firewall -> General) to `No` and by forwarding `port 1` with the `protocol` set to `other` to the ip over icmp server (under WAN -> Virtual Server/Port Forwarding).
+
+
+On the client side the route configuration needs to be changed with the following commands.
+```
+sudo route add -host <ip_over_icmp_server_ip> gw <gateway_ip_for_internet_connection>
+sudo route add default gw <ip_of_server_tun_interface>
+sudo route del default gw <gateway_ip_for_internet_connection>
+```
+Furthermore the DNS server configuration of the client needs to be changed because the DNS Server on the network of the client will no longer be reachable. This can be done by changing `/etc/resolv.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv4, turn of Automatic for for the DNS configuration and enter a publicly accesable DNS server (like Cloudflare, Google or Quad9).
+
 
 ## Mitigation
 - up to date anti-virus
