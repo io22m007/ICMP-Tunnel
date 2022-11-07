@@ -89,8 +89,8 @@ The demonstration involves an Ubuntu GNU/Linux computer as the attacker and a Wi
 - Windows computer as the victim (client)
 - POSIX compatible computer (like a GNU/Linux distribution) as the attacker (server)
 
-#### ***install***
-prerequisites (attacker only): 
+#### ***install (attacker only)***
+prerequisites: 
 - python is python 3
 - python3 impacket
 ```
@@ -98,7 +98,7 @@ sudo apt install python-is-python3
 sudo apt install python3-impacket
 ```
 #### ***configuration (attacker only)***
-It is necesarry to either put the following command at the end of the `/etc/sysctl.conf` file or execute it before executing the actual program:
+It is necessary to either put the following command at the end of the `/etc/sysctl.conf` file or execute it before executing the actual program:
 ```
 sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1
 ```
@@ -162,7 +162,7 @@ This can for example be used to circumvent captive portals.
 The demonstration involves an Ubuntu GNU/Linux machine as the IP over ICMP client and a Raspberry Pi with Raspberry Pi OS as a remote IP over ICMP server.
 
 #### ***requirements***
-- Linux or GNU/Linux machine with full internet access as a IP over ICMP server
+- Linux or GNU/Linux machine with full internet access as an IP over ICMP server
 - Linux, GNU/Linux, Windows or macOS machine with either full internet access or limited internet access with no restrictions on icmp traffic as the IP over ICMP client
 
 Support for tunnel devices (tun devices) is required. On Windows and macOS this functionality can be added with third party drivers.
@@ -204,7 +204,7 @@ sudo route add -host <ip_over_icmp_server_ip> gw <gateway_ip_for_internet_connec
 sudo route add default gw <ip_of_server_tun_interface>
 sudo route del default gw <gateway_ip_for_internet_connection>
 ```
-Furthermore, the DNS server configuration of the client needs to be changed because the DNS Server on the network of the client will no longer be reachable. This can be done by changing `/etc/resolv.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv4, turn of Automatic for for the DNS configuration and enter a publicly accesable DNS server (like Cloudflare, Google or Quad9).
+Furthermore, the DNS server configuration of the client needs to be changed because the DNS Server on the network of the client will no longer be reachable. This can be done by changing `/etc/resolv.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv4, turn of Automatic for the DNS configuration and enter a publicly accessible DNS server (like Cloudflare, Google or Quad9).
 
 For the execution of hans on the server side use the following command from the hans folder:
 ```
