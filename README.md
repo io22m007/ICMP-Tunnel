@@ -157,6 +157,39 @@ This can for example be used to circumvent captive portals.
 
 ### hans
 
+[hans](https://github.com/friedrich/hans) is available on GitHub under the GNU General Public License v3.0.
+
+The demonstration involves an Ubuntu GNU/Linux mashine as the IP over ICMP client and a Raspberry Pi with Raspberry Pi OS as a remote IP over ICMP server.
+
+#### ***requirements***
+- Linux or GNU/Linux mashine with full internet access as a IP over ICMP server
+- Linux, GNU/Linux, Windows or macOS mashine with either full internet access or limited internet access with no restrictions on icmp traffic as the IP over ICMP client
+
+Support for tunnel devices (tun devices) is required. On Windows and macOS this functionallity can be added with third party drivers.
+
+#### ***install (GNU/Linux only)***
+prerequisites: 
+- make
+- build-essential
+- net-tools
+- git
+```
+sudo apt install make
+sudo apt install build-essential
+sudo apt install net-tools
+sudo apt install git
+```
+
+For the installation of hans switch to the directory from GitHub.
+
+Then execute the `make` command.
+
+Lastly reboot the device.
+
+#### ***configuration and execution (GNU/Linux only)***
+Several settings need to be adjusted in order for the client and the server to be able to communicate and to use the internet over the ICMP tunnel.
+
+On the server side routing needs to be enabled and the 
 
 ## Mitigation
 - up to date anti-virus
