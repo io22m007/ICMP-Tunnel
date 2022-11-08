@@ -62,7 +62,7 @@ For starters with some ping utilities, you can adjust the length of the ICMP dat
 
 Other programs let you send a custom text as ICMP data.
 ```
-add instructions for demo
+find siutable program and add instructions for demo
 ```
 
 Some early research on what can be done with the data transmitted in ICMP requests and replies includes [project Loki](https://web.archive.org/web/20030316090229/http://www.phrack.com/show.php?p=49&a=6). In this project from 1996 the possibility of a covert channel via the ICMP protocol was discussed. Covert channels can be grouped into two categories:
