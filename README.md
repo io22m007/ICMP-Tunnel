@@ -61,8 +61,11 @@ Yes!
 For starters with some ping utilities, you can adjust the length of the ICMP data.
 
 Other programs let you send a custom text as ICMP data.
+```
+add instructions for demo
+```
 
-Some early research on what can be done with the data transmitted in ICMP requests and reply includes [project Loki](https://web.archive.org/web/20030316090229/http://www.phrack.com/show.php?p=49&a=6). In this project from 1996 the possibility of a covert channel via the ICMP protocol was discussed. Covert channels can be grouped into two categories:
+Some early research on what can be done with the data transmitted in ICMP requests and replies includes [project Loki](https://web.archive.org/web/20030316090229/http://www.phrack.com/show.php?p=49&a=6). In this project from 1996 the possibility of a covert channel via the ICMP protocol was discussed. Covert channels can be grouped into two categories:
 
 - timing channel (sub-categories: interval based, time-replay, model-based, JitterBug, ...)
 - storage channel (in networking use of optional or unused protocol fields)
@@ -160,6 +163,7 @@ This can for example be used to circumvent captive portals.
 [hans](https://github.com/friedrich/hans) is available on GitHub under the GNU General Public License v3.0.
 
 The demonstration involves an Ubuntu GNU/Linux machine as the IP over ICMP client and a Raspberry Pi with Raspberry Pi OS as a remote IP over ICMP server.
+![IP over ICMP diagram](IP_over_ICMP_diagram.png)
 
 #### ***requirements***
 - Linux or GNU/Linux machine with full internet access as an IP over ICMP server
@@ -222,7 +226,11 @@ For both the client and the server you can add the `-fv` option to the server or
 - up to date anti-virus
   - this can help against malicious client software for c&c attacks
   - icmpsh gets detected by several ani-virus software’s (checked with virustotal.com) and even by Windows Defender
-  - but icmpdoor doesn't get detected by practically any anti-virus software (checked with virustotal.com) 
+  - but icmpdoor doesn't get detected by practically any anti-virus software (checked with virustotal.com)
+  
+```
+add more mitigation techniques 
+```
 
 # Sources
 
