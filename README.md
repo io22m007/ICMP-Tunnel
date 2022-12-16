@@ -33,6 +33,10 @@ ICMP Types:
 - 15 Information Request
 - 16 Information Reply
 
+ICMP Codes depend on the ICMP Type.
+
+The checksum is bein calculated over the entire ICMP message and inserted afterwards.
+
 # Examples for ICMP echo request and ICMP echo reply
 Windows 10 on a LAN pinging Cloudflare DNS server on the public internet (echo request | type 8).
 
