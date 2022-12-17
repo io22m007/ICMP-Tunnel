@@ -213,6 +213,10 @@ In order for the server to be able to receive icmp messages icmp requests need t
 
 On Asus routers this is achieved by setting `Respond ICMP Echo (ping) Request from WAN` (under Firewall -> General) to `No` and by forwarding `port 1` with the `protocol` `other` to the ip over icmp server (under WAN -> Virtual Server/Port Forwarding).
 
+![Asus Firewall Settings](/Asus_Firewall_Settings.jpg)
+
+![Asus Port Forwarding](/Asus_Port-Forwarding.jpg)
+
 On the server routing needs to be enabled with the following command.
 ```
 sudo sysctl net.ipv4.ip_forward net.ipv4.ip_forward=1
