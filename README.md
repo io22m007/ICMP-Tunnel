@@ -207,36 +207,48 @@ Then execute the `make` command.
 Lastly reboot the device.
 
 #### ***configuration and execution (GNU/Linux only)***
-Several settings need to be adjusted so that the client and the server to be able to communicate and to use the internet over the ICMP tunnel.
+In the following the configuration of the client and the server will be described. Several settings need to be adjusted so that the client and the server are able to to communicate.
 
-On the server-side routing needs to be enabled with the following command.
+In order for the server to be able to receive icmp messages icmp requests need to be ignored by the router and/or CPE (customer premises equipment).
+
+On Asus routers this is achieved by setting `Respond ICMP Echo (ping) Request from WAN` (under Firewall -> General) to `No` and by forwarding `port 1` with the `protocol` `other` to the ip over icmp server (under WAN -> Virtual Server/Port Forwarding).
+
+On the server routing needs to be enabled with the following command.
 ```
 sudo sysctl net.ipv4.ip_forward net.ipv4.ip_forward=1
 ```
-Also, for the server icmp requests need to be ignored by the router and/or CPE (customer premises equipment).
 
-On Asus routers this is achieved by setting `Respond ICMP Echo (ping) Request from WAN` (under Firewall -> General) to `No` and by forwarding `port 1` with the `protocol` set to `other` to the ip over icmp server (under WAN -> Virtual Server/Port Forwarding).
-
-
-On the client side the route configuration needs to be changed with the following commands.
+Furthermore the iptables configuration needs to be changed with the following commands:
 ```
-sudo route add -host <ip_over_icmp_server_ip> gw <gateway_ip_for_internet_connection>
-sudo route add default gw <ip_of_server_tun_interface>
-sudo route del default gw <gateway_ip_for_internet_connection>
+sudo iptables -A FORWARD -i tun0 -o eth0 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o tun0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 ```
-Furthermore, the DNS server configuration of the client needs to be changed because the DNS Server on the network of the client will no longer be reachable. This can be done by changing `/etc/resolv.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv4, turn of Automatic for the DNS configuration and enter a publicly accessible DNS server (like Cloudflare, Google or Quad9).
 
-For the execution of hans on the server side use the following command from the hans folder:
+For the execution of hans on the server use the following command from the hans folder:
 ```
 sudo ./hans -s <network_ip> -p <password>
 ```
+
+On the client side the DNS server configuration needs to be changed because the DNS Server on the network of the client will no longer be reachable. This can be done by changing the `/etc/resolv.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv4, turn of Automatic for the DNS configuration and enter a publicly accessible DNS server (like Cloudflare, Google or Quad9).
+
+Also on the client IPv6 needs to be disabled because hans only supports IPv4. This can be done by changing the `/etc/sysctl.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv6 and set `Disable` as the `IPv6 Method`. At this point the IPv6 addresses need to be removed from the interface or the system needs to be rebooted.
 
 For the execution of hans on the client side use the following command from the hans folder:
 ```
 sudo ./hans -c <ip_over_icmp_server_ip> -p <password>
 ```
 
-For both the client and the server you can add the `-fv` option to the server or the client command so that hans runs in the foreground and prints debug information. This is can also be used to quit hans very easily (on desktop operating systems with a graphical shell). 
+After hans was started on the client side the route configuration of the client needs to be changed with the following commands.
+```
+sudo route add -host <ip_over_icmp_server_ip> gw <gateway_ip_for_internet_connection>
+sudo route add default gw <ip_of_server_tun_interface>
+sudo route del default gw <gateway_ip_for_internet_connection>
+```
+
+Bash shell scripts for both the client and the server are also provided. 
+
+For both the client and the server you can add the `-fv` option to the server or the client command so that hans runs in the foreground and prints debug information. This can also be used to quit hans very easily (on desktop operating systems with a graphical shell). 
 
 ## Mitigation
 - up to date anti-virus
