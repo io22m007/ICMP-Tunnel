@@ -5,6 +5,7 @@ document under construction
 
 ICMP (or the Internet Control Message Protocol) is an upper layer 3 protocol.
 
+![ICMP OSI TCP/IP](/ICMP_OSI_TCPIP.png)
 
 It is commonly used for diagnostic purposes (ping and traceroute).
 
@@ -254,7 +255,7 @@ sudo route add default gw <ip_of_server_tun_interface>
 sudo route del default gw <gateway_ip_for_internet_connection>
 ```
 
-Bash shell scripts for both the client and the server are also provided. 
+Bash shell scripts for both the client ([hans-client.sh](/hans-client.sh)) and the server ([hans-client.sh](/hans-client.sh)) are provided.
 
 For both the client and the server you can add the `-fv` option to the server or the client command so that hans runs in the foreground and prints debug information. This can also be used to quit hans very easily (on desktop operating systems with a graphical shell). 
 
