@@ -65,10 +65,20 @@ Yes!
 For starters with some ping utilities, you can adjust the length of the ICMP data.
 
 Other programs let you send a custom text as ICMP data.
-```
-find siutable program and add instructions for demo
-```
 
+### Demo for custom icmp data with nping
+
+nping which is part of the nmap utility.
+
+nmap binaries are available for Windows, macOS and Linux.
+
+nping demo command on Windows which needs to be executed from the `C:\Program Files (x86)\Nmap` folder:
+```
+nping --icmp -c 1 1.1.1.1 --data-string "qwertz 12345 abcdefg"
+```
+This command sends one icmp ping to the Cloudflare DNS with the content "qwertz 12345 abcdefg"
+
+### What could this be used for?
 Some early research on what can be done with the data transmitted in ICMP requests and replies includes [project Loki](https://web.archive.org/web/20030316090229/http://www.phrack.com/show.php?p=49&a=6). In this project from 1996 the possibility of a covert channel via the ICMP protocol was discussed. Covert channels can be grouped into two categories:
 
 - timing channel (sub-categories: interval based, time-replay, model-based, JitterBug, ...)
@@ -292,3 +302,7 @@ https://en.wikipedia.org/wiki/ICMP_tunnel
 https://logrhythm.com/blog/identifying-powershell-tunneling-through-icmp/
 
 https://www.socinvestigation.com/icmp-attacks-types-codes-for-log-analysis-detection-defense/
+
+https://gursimarsm.medium.com/customizing-icmp-payload-in-ping-command-7c4486f4a1be
+
+https://nmap.org/
