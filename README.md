@@ -231,10 +231,25 @@ For both the client and the server you can add the `-fv` option to the server or
   - this can help against malicious client software for c&c attacks
   - icmpsh gets detected by several ani-virus software’s (checked with virustotal.com) and even by Windows Defender
   - but icmpdoor doesn't get detected by practically any anti-virus software (checked with virustotal.com)
+- configure access control lists
+  - deny all icmp traffic
+  - only allow icmp traffic from certain sources or to certain destinations
+  - this might come at the cost of functionallity taken for granted
+- traffic analysis
+  - high amount of icmp traffic
+  - detect malicious external endpoints
+- ICMP data analysis
+  - ICMP data length limit
+  - deep packet inspection
   
 ```
 add more mitigation techniques 
 ```
+
+# Further ICMP based attacks worth mentioning
+- Ping of death
+- Smurf attack
+- ICMPv6 Router Discovery
 
 # Sources
 
@@ -271,3 +286,9 @@ https://cryptsus.com/blog/icmp-reverse-shell.html
 https://code.gerade.org/hans/
 
 https://kenelm1985.wordpress.com/2016/08/11/ip-over-icmp-with-hans/
+
+https://en.wikipedia.org/wiki/ICMP_tunnel
+
+https://logrhythm.com/blog/identifying-powershell-tunneling-through-icmp/
+
+https://www.socinvestigation.com/icmp-attacks-types-codes-for-log-analysis-detection-defense/
