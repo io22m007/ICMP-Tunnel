@@ -232,7 +232,11 @@ sudo ./hans -s <network_ip> -p <password>
 
 On the client side the DNS server configuration needs to be changed because the DNS Server on the network of the client will no longer be reachable. This can be done by changing the `/etc/resolv.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv4, turn of Automatic for the DNS configuration and enter a publicly accessible DNS server (like Cloudflare, Google or Quad9).
 
+![Ubuntu IPv4 DNS Settings](/Ubuntu_IPv4_DNS.png)
+
 Also on the client IPv6 needs to be disabled because hans only supports IPv4. This can be done by changing the `/etc/sysctl.conf` file or under Ubuntu GNU/Linux go to Settings -> Network -> Settings for the relevant network interface -> IPv6 and set `Disable` as the `IPv6 Method`. At this point the IPv6 addresses need to be removed from the interface or the system needs to be rebooted.
+
+![Ubuntu IPv6 Settings](/Ubuntu_IPv6.png)
 
 For the execution of hans on the client side use the following command from the hans folder:
 ```
