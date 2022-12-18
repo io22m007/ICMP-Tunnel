@@ -36,7 +36,7 @@ ICMP Types:
 
 ICMP Codes depend on the ICMP Type.
 
-The checksum is bein calculated over the entire ICMP message and inserted afterwards.
+The checksum is being calculated over the entire ICMP message and inserted afterwards.
 
 # Examples for ICMP echo request and ICMP echo reply
 Windows 10 on a LAN pinging Cloudflare DNS server on the public internet (echo request | type 8).
@@ -97,7 +97,7 @@ ICMP tunnels have two general use cases:
 ## Reverse-shell
 In a typical remote shell scenario, a user would establish a connection with a client to a server. The server is listening for connection-requests. When the client is connected to the server the user can access the resources of the server.
 
-A reverse-shell is the opposite of a remote shell. Instead of the server being the source of the shell the client gets to be the source of the shell. And the server is the one with which the user can control the client. This is also called a command and conquer (c&c) attack.
+A reverse-shell is the opposite of a remote shell. Instead of the server being the source of the shell the client is the source of the shell. And the server is the one with which the user can control the client. This is also called a command and conquer (c&c) attack.
 
 ### icmpsh
 
