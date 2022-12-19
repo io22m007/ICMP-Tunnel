@@ -14,7 +14,7 @@ ICMP for IPv4 is specified in [rfc792](https://www.rfc-editor.org/rfc/rfc792) an
 
 ![ICMP over IPv4 structure](ICMP_diagram.png)
 
-20 Byte IPv4 Header + 8 Byte ICMP fields + data (optional depending on the ICMP type)
+20 Byte IPv4 Header + 4 Byte ICMP fields + data (optional depending on the ICMP type)
 
 IPv4 type of service (TOS): 0
 
