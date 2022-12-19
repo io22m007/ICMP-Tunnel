@@ -69,9 +69,9 @@ Other programs let you send a custom text as ICMP data.
 
 ### Demo for custom icmp data with nping
 
-nping which is part of the nmap utility.
+Nping which is part of the Nmap utility.
 
-nmap binaries are available for Windows, macOS and Linux.
+Nmap binaries are available for Windows, macOS and Linux.
 
 nping demo command on Windows which needs to be executed from the `C:\Program Files (x86)\Nmap` folder:
 ```
@@ -274,6 +274,7 @@ For both the client and the server you can add the `-fv` option to the server or
 - ICMP data analysis
   - ICMP data length limit
   - deep packet inspection
+  - check if the data of the icmp echo-request paket is the same as the data of the echo-response packet
   
 ```
 add more mitigation techniques 
