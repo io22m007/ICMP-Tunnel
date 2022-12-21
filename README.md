@@ -1,6 +1,3 @@
-```
-document under construction
-```
 # Basics
 
 ICMP (or the Internet Control Message Protocol) is an upper layer 3 protocol.
@@ -56,7 +53,7 @@ Google DNS server responding to the request (echo reply | type 0).
 ![ICMP echo request](/ICMP_echo_reply_example_Ubuntu.png)
 
 # ICMP data
-Windows sends the alphabet (small letters) ~1,27 times (32 bytes).
+Windows sends small letters from a to w and from a to i (32 bytes).
 
 Ubuntu sends a total of 48 bytes from which only the last 24 bytes have a graphical representation.
 
